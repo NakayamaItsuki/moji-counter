@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字数カウントツール</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #333;
+        }
+        textarea {
+            width: 90%; /* 幅を90%に広げる */
+            max-width: 600px; /* 最大幅を指定 */
+            height: 50%; /* 高さを画面の50%に設定 */
+            padding: 10px;
+            font-size: 18px; /* 少し大きめのフォントサイズ */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #char-count {
+            font-size: 30px; /* フォントサイズを大きく */
+            font-weight: bold; /* 太字 */
+            // color: #007BFF; /* 青色に変更 */
+            margin-top: 20px;
+        }
+        /* スマホ対応 */
+        @media (max-width: 600px) {
+            textarea {
+                height: 40%; /* スマホでは高さを少し縮める */
+            }
+            #char-count {
+                font-size: 24px; /* スマホでは文字を少し小さく */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>文字数カウントツール</h1>
+    <textarea id="input-text" placeholder="ここにテキストを入力してください．"></textarea>
+    <p id="char-count">文字数: 0</p>
+    <script>
+        document.getElementById("input-text").addEventListener("input", () => {
+            const inputText = document.getElementById("input-text").value;
+            const charCount = inputText.length;
+            document.getElementById("char-count").textContent = `文字数: ${charCount}`;
+        });
+    </script>
+</body>
+</html>
